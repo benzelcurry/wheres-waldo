@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'digital-clock';
+  src: url('../fonts/digital-7.ttf');
+}
+
 .header-container {
   display: flex;
   justify-content: space-around;
@@ -5,4 +10,21 @@
   height: 100px;
   background-color: rgb(32, 25, 128);
   color: white;
+}
+
+.stopwatch {
+  font-family: 'digital-clock';
+  font-size: 3.5rem;
+  margin-top: -15px;
+}
+
+.remaining {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.7rem;
+  background-color: rgb(199, 35, 35);
+  border-radius: 100%;
+  height: 50px;
+  width: 50px;
 }
