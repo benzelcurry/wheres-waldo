@@ -2,9 +2,9 @@ import React from 'react';
 
 import '../stylesheets/Dropdown.css';
 
-const Dropdown = () => {
+const Dropdown = (props) => {
   return (
-    <div className='dropdown'>
+    <div className='dropdown' style={{ left: `${props.newX}px`, top: `${props.newY}px` }}>
       <ul>
         <li>Waldo</li>
         <li>Odlaw</li>
