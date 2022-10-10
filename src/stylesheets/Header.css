@@ -7,6 +7,12 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  width: 100vw;
+  max-width: 100%;
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+  left: 0;
   height: 100px;
   background-color: rgb(32, 25, 128);
   color: white;
