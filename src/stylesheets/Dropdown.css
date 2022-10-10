@@ -1,0 +1,32 @@
+.dropdown {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  height: 200px;
+  width: 150px;
+  z-index: 9;
+  border: solid 2px black;
+  background-color: white;
+  position: absolute;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+li:hover {
+  background-color: rgb(214, 212, 212);
+  cursor: pointer;
+}
+
+li:active {
+  background-color: rgb(185, 185, 185);
+}
