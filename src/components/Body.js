@@ -10,19 +10,23 @@ const Body = () => {
   const [drop, setDrop] = useState(false);
 
   const changeCoords = (e) => {
-    const clickLeft = e.pageX;
-    const clickTop = e.pageY;
+    let clickLeft;
+    let clickTop;
+
+    // Prevents dropdown from going off page
+    (e.pageX < 1766) ? (clickLeft = e.pageX) : (clickLeft = e.pageX - 154);
+    (e.pageY < 876) ? (clickTop = e.pageY) : (clickTop = e.pageY - 204);
 
     setX(clickLeft);
     setY(clickTop);
 
     drop ? setDrop(false) : setDrop(true);
+
+    console.log(e.pageX, e.pageY);
   };
 
-  // REFINE LOGIC THAT SHOWS WHERE DROPDOWN APPEARS ON SCREEN WHEN CLICKING (IT GETS WEIRD WHEN YOU SCROLL); MAKE APPEAR TO RIGHT OF CURSOR
-  // MAKE DROPDOWN HIDDEN BY DEFAULT
-  // MAKE DROPDOWN DISAPPEAR WHEN CLICKED OUTSIDE OF
   // ADD CIRCLE SHOWING AREA WHERE USER IS CLICKING ON IN ADDITION TO THE DROPDOWN
+  // ADD CUSTOM CURSOR AND MAKE IT A TARGETING CIRCLE?
   return (
     <div className='body-container' onClick={(e) => changeCoords(e)}>
       { drop ? 
