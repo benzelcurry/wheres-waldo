@@ -1,3 +1,6 @@
+// Header component that displays page title, stopwatch, and characters
+// remaining that still need to be found
+
 import React, { useState } from 'react';
 
 import Stopwatch from './Stopwatch';

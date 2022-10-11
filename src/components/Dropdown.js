@@ -1,3 +1,6 @@
+// Component for displaying the dropdown menu that allows the user to select
+// which character they're clicking on
+
 import React from 'react';
 
 import '../stylesheets/Dropdown.css';

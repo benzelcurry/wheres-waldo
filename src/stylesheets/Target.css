@@ -1,0 +1,12 @@
+.target {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: dashed red 4px;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  color: red;
+  position: absolute;
+  z-index: 20;
+}
