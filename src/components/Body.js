@@ -8,8 +8,7 @@ import Target from './Target';
 import Waldo from '../images/waldo1.jpg';
 import '../stylesheets/Body.css';
 
-// MAKE IT SO DROPDOWN DOESN'T APPEAR WHILE MODAL IS UP
-// AND TIMER DOESN'T RUN EITHER
+// MAKE IT SO STOPWATCH DOESN'T RUN UNTIL MODAL IS CLOSED
 
 const Body = () => {
   const [x, setX] = useState(0);
@@ -53,7 +52,13 @@ const Body = () => {
         </div>
         : null
       }
-      <img src={Waldo} alt='Wheres Waldo' className='game' />
+      { modal ? 
+        <img src={Waldo} alt='Wheres Waldo' className='game' 
+          style={{ filter: 'blur(3px)' }}
+        />
+        :
+        <img src={Waldo} alt='Wheres Waldo' className='game' />
+      }
     </div>
   );
 };

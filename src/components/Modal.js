@@ -24,7 +24,7 @@ const Modal = () => {
         <img src={WizardIcon} alt='Wizard' className='modal-icon' />
         Wizard Whitebeard  
       </div>
-      <button>Start</button>
+      <button className='modal-btn'>Start</button>
     </div>
   );
 };

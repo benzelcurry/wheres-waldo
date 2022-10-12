@@ -21,4 +21,31 @@
 .character {
   display: flex;
   align-items: center;
+  gap: 50px;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.prompt {
+  justify-self: center;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.modal-btn {
+  width: 200px;
+  justify-self: center;
+  border: solid 2px black;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-btn:hover {
+  filter: brightness(0.9);
+}
+
+.modal-btn:active {
+  filter: brightness(0.8);
 }
