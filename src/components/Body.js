@@ -10,7 +10,7 @@ import '../stylesheets/Body.css';
 
 // MAKE IT SO STOPWATCH DOESN'T RUN UNTIL MODAL IS CLOSED
 
-const Body = () => {
+const Body = ({ running, setRunning }) => {
   const [x, setX] = useState(0);
   const [y, setY] = useState(0);
   const [targX, setTargX] = useState(0);
@@ -42,7 +42,7 @@ const Body = () => {
   return (
     <div className='body-container' onClick={(e) => changeCoords(e)}>
       { modal ?
-        <Modal />
+        <Modal running={running} setRunning={setRunning} modal={modal} setModal={setModal}/>
         : null
       }
       { drop ? 

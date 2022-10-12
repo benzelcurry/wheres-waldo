@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './Header';
 import Body from './Body';
 
@@ -18,10 +18,12 @@ import Body from './Body';
 // 6. (OPTIONAL) Implement more maps to choose from
 
 const App = () => {
+  const [running, setRunning] = useState(false);
+
   return (
     <div >
-      <Header />
-      <Body />
+      <Header running={running} setRunning={setRunning} />
+      <Body running={running} setRunning={setRunning}/>
     </div>
   );
 };

@@ -3,9 +3,9 @@
 import React, { useState, useEffect } from 'react';
 
 // SINCE NOT USING BUTTONS, WILL NEED TO UPDATE TIMER STATUS BY PASSING `RUNNING` STATE MANUALLY
-const Stopwatch = () => {
+const Stopwatch = ({running, setRunning}) => {
   const [time, setTime] = useState(0);
-  const [running, setRunning] = useState(true);
+  // const [running, setRunning] = useState(true);
 
   useEffect(() => {
     let interval;

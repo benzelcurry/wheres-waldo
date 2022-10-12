@@ -8,7 +8,12 @@ import OdlawIcon from '../images/odlaw-face.png';
 import WizardIcon from '../images/wizard-face.png';
 import '../stylesheets/Modal.css';
 
-const Modal = () => {
+const Modal = ({ running, setRunning, modal, setModal }) => {
+  const startGame = () => {
+    running = setRunning(true);
+    modal = setModal(false);
+  }
+
   return (
     <div className='modal-container'>
       <div className='prompt'>Characters to find:</div>
@@ -24,7 +29,7 @@ const Modal = () => {
         <img src={WizardIcon} alt='Wizard' className='modal-icon' />
         Wizard Whitebeard  
       </div>
-      <button className='modal-btn'>Start</button>
+      <button className='modal-btn' onClick={() => startGame()}>Start</button>
     </div>
   );
 };
