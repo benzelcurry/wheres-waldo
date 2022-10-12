@@ -2,10 +2,14 @@
 
 import React, { useState } from 'react';
 
+import Modal from './Modal';
 import Dropdown from './Dropdown';
 import Target from './Target';
 import Waldo from '../images/waldo1.jpg';
 import '../stylesheets/Body.css';
+
+// MAKE IT SO DROPDOWN DOESN'T APPEAR WHILE MODAL IS UP
+// AND TIMER DOESN'T RUN EITHER
 
 const Body = () => {
   const [x, setX] = useState(0);
@@ -13,6 +17,7 @@ const Body = () => {
   const [targX, setTargX] = useState(0);
   const [targY, setTargY] = useState(0);
   const [drop, setDrop] = useState(false);
+  const [modal, setModal] = useState(true);
 
   const changeCoords = (e) => {
     let clickLeft = e.pageX + 25;
@@ -35,6 +40,10 @@ const Body = () => {
   // ADD CUSTOM CURSOR AND MAKE IT A TARGETING CIRCLE?
   return (
     <div className='body-container' onClick={(e) => changeCoords(e)}>
+      { modal ?
+        <Modal />
+        : null
+      }
       { drop ? 
         <div>
           <Target newX={targX - 28} newY={targY - 25} />
