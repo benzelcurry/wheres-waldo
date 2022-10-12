@@ -20,20 +20,22 @@ const Body = () => {
   const [modal, setModal] = useState(true);
 
   const changeCoords = (e) => {
-    let clickLeft = e.pageX + 25;
-    let clickTop = e.pageY + 25;
-  
-    // Prevents dropdown from going off page; div (image) dimensions are 1920x1080; dropdown dimensions are 154x204;
-    // Extra spacing added so dropdown doesn't cover target
-    if (e.pageX >= 1736) { clickLeft = e.pageX - 179 };
-    if (e.pageY >= 876) { clickTop = e.pageY - 229 };
+    if (!modal) {
+      let clickLeft = e.pageX + 25;
+      let clickTop = e.pageY + 25;
+    
+      // Prevents dropdown from going off page; div (image) dimensions are 1920x1080; dropdown dimensions are 154x204;
+      // Extra spacing added so dropdown doesn't cover target
+      if (e.pageX >= 1736) { clickLeft = e.pageX - 179 };
+      if (e.pageY >= 876) { clickTop = e.pageY - 229 };
 
-    setX(clickLeft);
-    setY(clickTop);
-    setTargX(e.pageX);
-    setTargY(e.pageY);
+      setX(clickLeft);
+      setY(clickTop);
+      setTargX(e.pageX);
+      setTargY(e.pageY);
 
-    drop ? setDrop(false) : setDrop(true);
+      drop ? setDrop(false) : setDrop(true);
+    }
   };
 
   // ADD CIRCLE SHOWING AREA WHERE USER IS CLICKING ON IN ADDITION TO THE DROPDOWN

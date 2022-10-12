@@ -5,9 +5,20 @@
   position: absolute;
   z-index: 20;
   background-color: white;
-  height: 70%;
-  width: 70%;
+  height: 50%;
+  width: 50%;
   margin-top: -200px;
   border: solid 5px black;
   border-radius: 20px;
+  padding: 40px;
+}
+
+.modal-icon {
+  height: 100px;
+  width: 100px;
+}
+
+.character {
+  display: flex;
+  align-items: center;
 }
