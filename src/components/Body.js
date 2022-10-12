@@ -8,8 +8,6 @@ import Target from './Target';
 import Waldo from '../images/waldo1.jpg';
 import '../stylesheets/Body.css';
 
-// MAKE IT SO STOPWATCH DOESN'T RUN UNTIL MODAL IS CLOSED
-
 const Body = ({ running, setRunning }) => {
   const [x, setX] = useState(0);
   const [y, setY] = useState(0);
@@ -37,8 +35,6 @@ const Body = ({ running, setRunning }) => {
     }
   };
 
-  // ADD CIRCLE SHOWING AREA WHERE USER IS CLICKING ON IN ADDITION TO THE DROPDOWN
-  // ADD CUSTOM CURSOR AND MAKE IT A TARGETING CIRCLE?
   return (
     <div className='body-container' onClick={(e) => changeCoords(e)}>
       { modal ?

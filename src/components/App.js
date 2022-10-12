@@ -5,9 +5,8 @@ import Body from './Body';
 // RUN `NPM RUN BUILD` TO PUSH CHANGES TO FIREBASE
 // To-do list for completing project:
 // 1. Finish front-end design + user interaction
-// 1.1. Make icon backgrounds transparent
-// 1.2. Create modal that covers screen and shows characters user needs to find on page refresh
-// 1.3. Replace characters-remaining counter in header with icons of the characters that get
+// 1.1. Fix Waldo's transparent shirt
+// 1.2. Replace characters-remaining counter in header with icons of the characters that get
 //      greyed out when they've been found 
 // 2. Figure out how to store character coordinates on Firestore Database
 // 3. Figure out how to send user click coordinates to check with database
