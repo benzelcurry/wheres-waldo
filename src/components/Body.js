@@ -7,7 +7,10 @@ import Dropdown from './Dropdown';
 import Target from './Target';
 import Waldo from '../images/waldo1.jpg';
 import '../stylesheets/Body.css';
-
+// COORDINATES:
+// Odlaw: X: 207. Y: 468.
+// Waldo: X: 1187. Y: 499.
+// Wizard: X: 518. Y: 471.
 const Body = ({ running, setRunning }) => {
   const [x, setX] = useState(0);
   const [y, setY] = useState(0);
@@ -32,6 +35,8 @@ const Body = ({ running, setRunning }) => {
       setTargY(e.pageY);
 
       drop ? setDrop(false) : setDrop(true);
+
+      console.log(`X: ${e.pageX}. Y: ${e.pageY}`);
     }
   };
 
