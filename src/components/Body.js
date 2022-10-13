@@ -45,6 +45,8 @@ const Body = ({ running, setRunning }) => {
   const colRef = collection(db, 'character-coords')
   
   // Gets coordinates and ID's from Firestore Database
+  // SET COORDS TO A VARIABLE USING STATE TO BE CHECKED AGAINST
+  // WHEN USER CLICKS SOMEWHERE AND SELECTS A CHARACTER
   getDocs(colRef)
     .then((snapshot) => {
       let coords = [];
