@@ -2,11 +2,17 @@
 
 import React, { useState } from 'react';
 
+import { initializeApp } from 'firebase/app';
+import {
+  getFirestore, collection, getDocs
+} from 'firebase/firestore'
+
 import Modal from './Modal';
 import Dropdown from './Dropdown';
 import Target from './Target';
 import Waldo from '../images/waldo1.jpg';
 import '../stylesheets/Body.css';
+
 // COORDINATES:
 // Odlaw: X: 207. Y: 468.
 // Waldo: X: 1187. Y: 499.
@@ -18,6 +24,38 @@ const Body = ({ running, setRunning }) => {
   const [targY, setTargY] = useState(0);
   const [drop, setDrop] = useState(false);
   const [modal, setModal] = useState(true);
+
+  // Firebase stuff
+  const firebaseConfig = {
+    apiKey: "AIzaSyCaQpnXFVozA-hP8SHsFXBH_CA0E0BEFW0",
+    authDomain: "wheres-waldo-at.firebaseapp.com",
+    projectId: "wheres-waldo-at",
+    storageBucket: "wheres-waldo-at.appspot.com",
+    messagingSenderId: "998831103944",
+    appId: "1:998831103944:web:77b57f1271541ba8052afd"
+  };
+  
+  // Initialize Firebase app
+  initializeApp(firebaseConfig);
+  
+  // Initialize services
+  const db = getFirestore();
+  
+  // Collection reference
+  const colRef = collection(db, 'character-coords')
+  
+  // Gets coordinates and ID's from Firestore Database
+  getDocs(colRef)
+    .then((snapshot) => {
+      let coords = [];
+      snapshot.docs.forEach((doc) => {
+        coords.push({ ...doc.data(), id: doc.id })
+      });
+      console.log(coords);
+    })
+    .catch(err => {
+      console.log(err.message);
+    });
 
   const changeCoords = (e) => {
     if (!modal) {
@@ -35,8 +73,6 @@ const Body = ({ running, setRunning }) => {
       setTargY(e.pageY);
 
       drop ? setDrop(false) : setDrop(true);
-
-      console.log(`X: ${e.pageX}. Y: ${e.pageY}`);
     }
   };
 
