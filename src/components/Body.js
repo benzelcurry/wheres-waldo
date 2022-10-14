@@ -13,22 +13,13 @@ import Target from './Target';
 import Waldo from '../images/waldo1.jpg';
 import '../stylesheets/Body.css';
 
-// COORDINATES:
-// Odlaw: X: 207. Y: 468.
-// Waldo: X: 1187. Y: 499.
-// Wizard: X: 518. Y: 471.
-const Body = ({ running, setRunning }) => {
+const Body = ({ running, setRunning, status, setStatus }) => {
   const [x, setX] = useState(0);
   const [y, setY] = useState(0);
   const [targX, setTargX] = useState(0);
   const [targY, setTargY] = useState(0);
   const [drop, setDrop] = useState(false);
   const [modal, setModal] = useState(true);
-  const [status, setStatus] = useState({
-    odlaw: 'not-found',
-    waldo: 'not-found',
-    wizard: 'not-found'
-  });
   const [odlawX, setOdlawX] = useState(null);
   const [odlawY, setOdlawY] = useState(null);
   const [waldoX, setWaldoX] = useState(null);
@@ -102,7 +93,8 @@ const Body = ({ running, setRunning }) => {
         <div>
           <Target newX={targX - 28} newY={targY - 25} />
           <Dropdown newX={x} newY={y} targX={targX} targY={targY} odlawX={odlawX} odlawY={odlawY}
-                    waldoX={waldoX} waldoY={waldoY} wizardX={wizardX} wizardY={wizardY} />
+                    waldoX={waldoX} waldoY={waldoY} wizardX={wizardX} wizardY={wizardY} status={status}
+                    setStatus={setStatus}/>
         </div>
         : null
       }

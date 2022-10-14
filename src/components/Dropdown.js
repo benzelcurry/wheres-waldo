@@ -14,16 +14,19 @@ const Dropdown = (props) => {
       if (props.targX >= (props.odlawX - 25) && props.targX <= (props.odlawX + 25) &&
           props.targY >= (props.odlawY - 25) && props.targY <= (props.odlawY + 25)) {
             alert('You found Odlaw!');
+            props.setStatus({ ...props.status, [char]: 'found' });
       }
     } else if (char === 'waldo') {
       if (props.targX >= (props.waldoX - 25) && props.targX <= (props.waldoX + 25) &&
           props.targY >= (props.waldoY - 25) && props.targY <= (props.waldoY + 25)) {
-        alert('You found Waldo!');
+            alert('You found Waldo!');
+            props.setStatus({ ...props.status, [char]: 'found' });
       }
     } else if (char === 'wizard') {
       if (props.targX >= (props.wizardX - 25) && props.targX <= (props.wizardX + 25) &&
           props.targY >= (props.wizardY - 25) && props.targY <= (props.wizardY + 25)) {
-        alert('You found Wizard Whitebeard!');
+            alert('You found Wizard Whitebeard!');
+            props.setStatus({ ...props.status, [char]: 'found' });
       };
     };
 };
