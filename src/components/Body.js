@@ -24,6 +24,9 @@ const Body = ({ running, setRunning }) => {
   const [targY, setTargY] = useState(0);
   const [drop, setDrop] = useState(false);
   const [modal, setModal] = useState(true);
+  const [selection, setSelection] = useState('none');
+
+  const [locations, setLocations] = useState([]);
 
   // Firebase stuff
   const firebaseConfig = {
@@ -53,7 +56,8 @@ const Body = ({ running, setRunning }) => {
       snapshot.docs.forEach((doc) => {
         coords.push({ ...doc.data(), id: doc.id })
       });
-      console.log(coords);
+      // console.log(coords);
+      // console.log(coords[0].x)
     })
     .catch(err => {
       console.log(err.message);
@@ -87,7 +91,7 @@ const Body = ({ running, setRunning }) => {
       { drop ? 
         <div>
           <Target newX={targX - 28} newY={targY - 25} />
-          <Dropdown newX={x} newY={y} />
+          <Dropdown newX={x} newY={y} setSelection={setSelection}/>
         </div>
         : null
       }

@@ -8,7 +8,7 @@ import Body from './Body';
 // 1.1. Fix Waldo's transparent shirt
 // 1.2. Replace characters-remaining counter in header with icons of the characters that get
 //      greyed out when they've been found 
-// 2. Figure out how to store character coordinates on Firestore Database
+// 2. Figure out how to store character coordinates on Firestore Database !// CHECK
 // 3. Figure out how to send user click coordinates to check with database
 //    user has clicked the correct space; remove character from remaining
 //    chars if so.
