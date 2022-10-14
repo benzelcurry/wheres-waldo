@@ -25,7 +25,12 @@ const Body = ({ running, setRunning }) => {
   const [drop, setDrop] = useState(false);
   const [modal, setModal] = useState(true);
   const [selection, setSelection] = useState('none');
-
+  const [status, setStatus] = useState({
+    odlaw: 'not-found',
+    waldo: 'not-found',
+    wizard: 'not-found'
+  });
+  let odlawX, odlawY, waldoX, waldoY, wizardX, wizardY;
   const [locations, setLocations] = useState([]);
 
   // Firebase stuff
@@ -50,6 +55,7 @@ const Body = ({ running, setRunning }) => {
   // Gets coordinates and ID's from Firestore Database
   // SET COORDS TO A VARIABLE USING STATE TO BE CHECKED AGAINST
   // WHEN USER CLICKS SOMEWHERE AND SELECTS A CHARACTER
+  
   getDocs(colRef)
     .then((snapshot) => {
       let coords = [];
@@ -58,10 +64,38 @@ const Body = ({ running, setRunning }) => {
       });
       // console.log(coords);
       // console.log(coords[0].x)
+      odlawX = coords[0].x
+      odlawY = coords[0].y
+      waldoX = coords[1].x
+      waldoY = coords[1].y
+      wizardX = coords[2].x
+      wizardY = coords[2].y
     })
     .catch(err => {
       console.log(err.message);
     });
+
+  // FUNCTION FOR VERIFYING WITH BACK END IF USER CLICKED IN RIGHT SPOT
+  // NEEDS WORK LINKING WITH CHARACTERS REMAINING AND OTHER ASPECTS OF PROGRAM
+  const chooseWho = (char) => {
+    if (char === 'odlaw') {
+      if (targX >= (odlawX - 25) && targX <= (odlawX + 25) &&
+          targY >= (odlawY - 25) && targY <= (odlawY + 25)) {
+            alert('You found Odlaw!');
+      };
+    } else if (char === 'waldo') {
+      if (targX >= (waldoX - 25) && targX <= (waldoX + 25) &&
+          waldoY >= (odlawY - 25) && targY <= (waldoY + 25)) {
+            alert('You found Waldo!');
+      };
+    } else if (char === 'wizard') {
+      if (targX >= (wizardX - 25) && targX <= (wizardX + 25) &&
+          targY >= (wizardY - 25) && targY <= (wizardY + 25)) {
+            alert('You found Wizard!');
+      };
+    };
+  };
+  // END FUNCTION
 
   const changeCoords = (e) => {
     if (!modal) {
@@ -79,6 +113,10 @@ const Body = ({ running, setRunning }) => {
       setTargY(e.pageY);
 
       drop ? setDrop(false) : setDrop(true);
+
+      console.log(odlawX, odlawY, waldoX, waldoY, wizardX, wizardY);
+
+      chooseWho('wizard');
     }
   };
 
