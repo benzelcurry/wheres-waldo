@@ -24,14 +24,17 @@ const Body = ({ running, setRunning }) => {
   const [targY, setTargY] = useState(0);
   const [drop, setDrop] = useState(false);
   const [modal, setModal] = useState(true);
-  const [selection, setSelection] = useState('none');
   const [status, setStatus] = useState({
     odlaw: 'not-found',
     waldo: 'not-found',
     wizard: 'not-found'
   });
-  let odlawX, odlawY, waldoX, waldoY, wizardX, wizardY;
-  const [locations, setLocations] = useState([]);
+  const [odlawX, setOdlawX] = useState(null);
+  const [odlawY, setOdlawY] = useState(null);
+  const [waldoX, setWaldoX] = useState(null);
+  const [waldoY, setWaldoY] = useState(null);
+  const [wizardX, setWizardX] = useState(null);
+  const [wizardY, setWizardY] = useState(null);
 
   // Firebase stuff
   const firebaseConfig = {
@@ -52,50 +55,23 @@ const Body = ({ running, setRunning }) => {
   // Collection reference
   const colRef = collection(db, 'character-coords')
   
-  // Gets coordinates and ID's from Firestore Database
-  // SET COORDS TO A VARIABLE USING STATE TO BE CHECKED AGAINST
-  // WHEN USER CLICKS SOMEWHERE AND SELECTS A CHARACTER
-  
+  // Gets coordinates and ID's from Firestore Database then assigns to state variables
   getDocs(colRef)
     .then((snapshot) => {
       let coords = [];
       snapshot.docs.forEach((doc) => {
         coords.push({ ...doc.data(), id: doc.id })
       });
-      // console.log(coords);
-      // console.log(coords[0].x)
-      odlawX = coords[0].x
-      odlawY = coords[0].y
-      waldoX = coords[1].x
-      waldoY = coords[1].y
-      wizardX = coords[2].x
-      wizardY = coords[2].y
+      setOdlawX(coords[0].x);
+      setOdlawY(coords[0].y);
+      setWaldoX(coords[1].x);
+      setWaldoY(coords[1].y);
+      setWizardX(coords[2].x);
+      setWizardY(coords[2].y);
     })
     .catch(err => {
       console.log(err.message);
     });
-
-  // FUNCTION FOR VERIFYING WITH BACK END IF USER CLICKED IN RIGHT SPOT
-  // NEEDS WORK LINKING WITH CHARACTERS REMAINING AND OTHER ASPECTS OF PROGRAM
-  const chooseWho = (char) => {
-    if (char === 'odlaw') {
-      if (targX >= (odlawX - 25) && targX <= (odlawX + 25) &&
-          targY >= (odlawY - 25) && targY <= (odlawY + 25)) {
-            alert('You found Odlaw!');
-      };
-    } else if (char === 'waldo') {
-      if (targX >= (waldoX - 25) && targX <= (waldoX + 25) &&
-          waldoY >= (odlawY - 25) && targY <= (waldoY + 25)) {
-            alert('You found Waldo!');
-      };
-    } else if (char === 'wizard') {
-      if (targX >= (wizardX - 25) && targX <= (wizardX + 25) &&
-          targY >= (wizardY - 25) && targY <= (wizardY + 25)) {
-            alert('You found Wizard!');
-      };
-    };
-  };
-  // END FUNCTION
 
   const changeCoords = (e) => {
     if (!modal) {
@@ -113,10 +89,6 @@ const Body = ({ running, setRunning }) => {
       setTargY(e.pageY);
 
       drop ? setDrop(false) : setDrop(true);
-
-      console.log(odlawX, odlawY, waldoX, waldoY, wizardX, wizardY);
-
-      chooseWho('wizard');
     }
   };
 
@@ -129,7 +101,8 @@ const Body = ({ running, setRunning }) => {
       { drop ? 
         <div>
           <Target newX={targX - 28} newY={targY - 25} />
-          <Dropdown newX={x} newY={y} setSelection={setSelection}/>
+          <Dropdown newX={x} newY={y} targX={targX} targY={targY} odlawX={odlawX} odlawY={odlawY}
+                    waldoX={waldoX} waldoY={waldoY} wizardX={wizardX} wizardY={wizardY} />
         </div>
         : null
       }
