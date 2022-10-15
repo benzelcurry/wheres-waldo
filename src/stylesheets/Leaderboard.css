@@ -1,0 +1,8 @@
+.leaderboard-container {
+  height: 80%;
+  width: 80%;
+  position: absolute;
+  z-index: 99;
+  background-color: white;
+  border: solid 4px black;
+}

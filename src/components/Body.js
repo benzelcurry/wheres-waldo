@@ -4,12 +4,13 @@ import React, { useState } from 'react';
 
 import { initializeApp } from 'firebase/app';
 import {
-  getFirestore, collection, getDocs
+  getFirestore, collection, getDocs,
 } from 'firebase/firestore'
 
 import Modal from './Modal';
 import Dropdown from './Dropdown';
 import Target from './Target';
+import Leaderboard from './Leaderboard';
 import Waldo from '../images/waldo1.jpg';
 import '../stylesheets/Body.css';
 
@@ -98,6 +99,7 @@ const Body = ({ running, setRunning, status, setStatus }) => {
         </div>
         : null
       }
+      <Leaderboard db={db} collection={collection} getDocs={getDocs}/>
       { modal ? 
         <img src={Waldo} alt='Wheres Waldo' className='game' 
           style={{ filter: 'blur(3px)' }}
