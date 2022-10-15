@@ -11,10 +11,11 @@ import '../stylesheets/Header.css';
 
 // FIX WALDO ICON SO SHIRT ISN'T TRANSPARENT
 const Header = ({ running, setRunning, status, setStatus }) => {
+
   return (
     <div className='header-container'>
       <div className="home-btn">Where's Waldo</div>
-      <Stopwatch running={running} setRunning={setRunning}/>
+      <Stopwatch running={running} setRunning={setRunning} status={status}/>
       <div className="remaining">
         { (status.waldo === 'not-found') ?
           <img src={WaldoIcon} alt='Waldo' className='nav-icon' id='waldo' />
