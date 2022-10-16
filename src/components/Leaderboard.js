@@ -1,8 +1,12 @@
+// Component that displays the leaderboard
+
 import React, { useState, useEffect } from 'react';
 
 import AddName from './AddName';
 import '../stylesheets/Leaderboard.css';
 
+// IMPLEMENT A PLAY AGAIN BUTTON
+// STYLE THIS COMPONENT MORE
 const Leaderboard = ({ db, collection, getDocs }) => {
   const [hiscores, setHiscores] = useState([]);
 

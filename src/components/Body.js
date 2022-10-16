@@ -99,7 +99,10 @@ const Body = ({ running, setRunning, status, setStatus }) => {
         </div>
         : null
       }
-      <Leaderboard db={db} collection={collection} getDocs={getDocs}/>
+      { !Object.values(status).includes('not-found') ?
+        <Leaderboard db={db} collection={collection} getDocs={getDocs}/>
+        : null
+      }
       { modal ? 
         <img src={Waldo} alt='Wheres Waldo' className='game' 
           style={{ filter: 'blur(3px)' }}

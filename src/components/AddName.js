@@ -1,8 +1,12 @@
+// Component for adding your name to the leaderboard
+
 import React, { useState } from 'react';
 import { collection, addDoc } from 'firebase/firestore';
 
 import '../stylesheets/AddName.css';
 
+// IF USER SCORE IS > ANY OF TOP 10 OF HISCORE STATE VARIABLE,
+// PROMPT USER TO ADD NAME TO LEADERBOARD
 const AddName = ({ db }) => {
   const [name, setName] = useState('');
 
