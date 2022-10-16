@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+import AddName from './AddName';
 import '../stylesheets/Leaderboard.css';
 
 const Leaderboard = ({ db, collection, getDocs }) => {
@@ -24,6 +25,11 @@ const Leaderboard = ({ db, collection, getDocs }) => {
           data: doc.data(), id: 
           doc.id 
         }))
+
+        scores.sort((a, b) => (
+          a.data.score < b.data.score
+        ) ? -1 : 1);
+
         setHiscores(scores);
       })
       .catch(err => console.log(err.message));
@@ -39,6 +45,7 @@ const Leaderboard = ({ db, collection, getDocs }) => {
             <div>{ score.data.score }</div>
           </li>) }
       </ol>
+      <AddName db={db} />
     </div>
   )
 };
