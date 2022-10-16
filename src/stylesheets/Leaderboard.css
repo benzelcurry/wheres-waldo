@@ -1,8 +1,30 @@
 .leaderboard-container {
+  display: grid;
   height: 80%;
   width: 80%;
   position: absolute;
   z-index: 99;
   background-color: white;
   border: solid 4px black;
+}
+
+.leaderboard-title {
+  padding-top: 40px;
+  height: 0px;
+  justify-self: center;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.score-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 100px 100px 100px;
+}
+
+.score {
+  display: flex;
+  font-size: 24px;
+  gap: 40px;
 }
