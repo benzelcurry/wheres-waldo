@@ -7,7 +7,7 @@ import '../stylesheets/AddName.css';
 
 // IF USER SCORE IS > ANY OF TOP 10 OF HISCORE STATE VARIABLE,
 // PROMPT USER TO ADD NAME TO LEADERBOARD
-const AddName = ({ db }) => {
+const AddName = ({ db, time }) => {
   const [name, setName] = useState('');
 
   const handleSubmit = (e) => {
@@ -40,6 +40,13 @@ const AddName = ({ db }) => {
          onChange={ (e) => setName(e.target.value) } />
         <button type='submit'>Enter Name</button>
       </form>
+      <div className='time-container'>Your time was: &nbsp;{
+        <div>
+          <span>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}:</span>
+          <span>{("0" + Math.floor((time / 1000) % 60)).slice(-2)}</span>
+        </div>
+      }
+      </div>
     </div>
   );
 };

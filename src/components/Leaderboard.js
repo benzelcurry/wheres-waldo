@@ -7,7 +7,7 @@ import '../stylesheets/Leaderboard.css';
 
 // IMPLEMENT A PLAY AGAIN BUTTON
 // STYLE THIS COMPONENT MORE
-const Leaderboard = ({ db, collection, getDocs }) => {
+const Leaderboard = ({ db, collection, getDocs, time }) => {
   const [hiscores, setHiscores] = useState([]);
 
   // Include ', []' after trailing '}'?
@@ -49,7 +49,7 @@ const Leaderboard = ({ db, collection, getDocs }) => {
             <div>{ score.data.score }</div>
           </li>) }
       </ol>
-      <AddName db={db} />
+      <AddName db={db} time={time} />
     </div>
   )
 };

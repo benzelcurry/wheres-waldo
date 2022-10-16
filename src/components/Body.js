@@ -14,7 +14,7 @@ import Leaderboard from './Leaderboard';
 import Waldo from '../images/waldo1.jpg';
 import '../stylesheets/Body.css';
 
-const Body = ({ running, setRunning, status, setStatus }) => {
+const Body = ({ running, setRunning, status, setStatus, time }) => {
   const [x, setX] = useState(0);
   const [y, setY] = useState(0);
   const [targX, setTargX] = useState(0);
@@ -100,7 +100,7 @@ const Body = ({ running, setRunning, status, setStatus }) => {
         : null
       }
       { !Object.values(status).includes('not-found') ?
-        <Leaderboard db={db} collection={collection} getDocs={getDocs}/>
+        <Leaderboard db={db} collection={collection} getDocs={getDocs} time={time} />
         : null
       }
       { modal ? 

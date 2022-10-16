@@ -17,6 +17,7 @@ import Body from './Body';
 // 6. (OPTIONAL) Implement more maps to choose from
 
 const App = () => {
+  const [time, setTime] = useState(0);
   const [running, setRunning] = useState(false);
   const [status, setStatus] = useState({
     odlaw: 'not-found',
@@ -26,8 +27,8 @@ const App = () => {
 
   return (
     <div >
-      <Header running={running} setRunning={setRunning} status={status} setStatus={setStatus} />
-      <Body running={running} setRunning={setRunning} status={status} setStatus={setStatus}/>
+      <Header running={running} setRunning={setRunning} status={status} setStatus={setStatus} time={time} setTime={setTime} />
+      <Body running={running} setRunning={setRunning} status={status} setStatus={setStatus} time={time} />
     </div>
   );
 };

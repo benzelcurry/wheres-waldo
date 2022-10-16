@@ -1,10 +1,8 @@
 // Stopwatch component for measuring time taken to finish the game
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
-const Stopwatch = ({ running, setRunning, status }) => {
-  const [time, setTime] = useState(0);
-
+const Stopwatch = ({ running, status, time, setTime }) => {
   useEffect(() => {
     let interval;
 

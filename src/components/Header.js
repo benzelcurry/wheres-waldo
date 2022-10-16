@@ -10,12 +10,12 @@ import WizardIcon from '../images/wizard-face.png';
 import '../stylesheets/Header.css';
 
 // FIX WALDO ICON SO SHIRT ISN'T TRANSPARENT
-const Header = ({ running, setRunning, status, setStatus }) => {
+const Header = ({ running, setRunning, status, time, setTime }) => {
 
   return (
     <div className='header-container'>
       <div className="home-btn">Where's Waldo</div>
-      <Stopwatch running={running} setRunning={setRunning} status={status}/>
+      <Stopwatch running={running} setRunning={setRunning} status={status} time={time} setTime={setTime} />
       <div className="remaining">
         { (status.waldo === 'not-found') ?
           <img src={WaldoIcon} alt='Waldo' className='nav-icon' id='waldo' />
