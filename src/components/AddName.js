@@ -13,7 +13,10 @@ const AddName = ({ db, time }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const score = () => `${("0" + Math.floor((time / 60000) % 60)).slice(-2)}:${("0" + Math.floor((time / 1000) % 60)).slice(-2)}`
+
     if (name === '') {
+      console.log(score);
       return;
     }
 
@@ -21,7 +24,7 @@ const AddName = ({ db, time }) => {
     // TIME WILL BE ADDED THROUGH THE ADDDOC LINE AS WELL
     // CHECK SCORE AGAINST TOP TEN SCORES BEFORE PROMPTING USER
     // TO ENTER THEIR NAME
-    addDoc(scoresColRef, {name})
+    addDoc(scoresColRef, { name, score })
       .then(response => {
         console.log(response);
       })

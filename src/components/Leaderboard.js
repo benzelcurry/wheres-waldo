@@ -1,6 +1,7 @@
 // Component that displays the leaderboard
 
 import React, { useState, useEffect } from 'react';
+import { onSnapshot } from 'firebase/firestore';
 
 import AddName from './AddName';
 import '../stylesheets/Leaderboard.css';
@@ -26,8 +27,8 @@ const Leaderboard = ({ db, collection, getDocs, time }) => {
     getDocs(scoresColRef)
       .then(response => {
         const scores = response.docs.map(doc => ({ 
-          data: doc.data(), id: 
-          doc.id 
+          data: doc.data(), 
+          id: doc.id 
         }))
 
         scores.sort((a, b) => (
@@ -44,9 +45,11 @@ const Leaderboard = ({ db, collection, getDocs, time }) => {
       <div className='leaderboard-title'>Leaderboard</div>
       <ol className='score-container'>
         { hiscores.map(score => 
-          <li key={score.id} className='score'>
-            <div>{ score.data.name }</div>
-            <div>{ score.data.score }</div>
+          <li key={score.id}>
+            <div className="score">
+              <div>{ score.data.name }</div>
+              <div>{ score.data.score }</div>
+            </div>
           </li>) }
       </ol>
       <AddName db={db} time={time} />

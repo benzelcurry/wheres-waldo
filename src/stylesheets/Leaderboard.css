@@ -1,6 +1,6 @@
 .leaderboard-container {
   display: grid;
-  height: 80%;
+  min-height: 80%;
   width: 80%;
   position: absolute;
   z-index: 99;
@@ -21,6 +21,10 @@
   flex-direction: column;
   gap: 20px;
   padding: 0 100px 100px 100px;
+}
+
+li {
+  font-size: 24px;
 }
 
 .score {
