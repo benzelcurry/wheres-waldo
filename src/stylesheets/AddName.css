@@ -6,7 +6,7 @@
   position: absolute;
   z-index: 99;
   background-color: white;
-  border: solid 4px black;
+  border: solid 5px black;
   border-radius: 20px;
   align-items: center;
   justify-content: center;
@@ -20,7 +20,14 @@
 
 .name-field {
   height: 50px;
+  padding: 4px;
+  border: solid 2px black;
+  border-radius: 10px;
   font-size: 1.4rem;
+}
+
+.name-field:hover {
+  filter: brightness(0.9);
 }
 
 .submit-btn {

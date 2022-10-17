@@ -68,7 +68,7 @@ const Body = ({ running, setRunning, status, setStatus, time, setTime }) => {
     });
 
   const changeCoords = (e) => {
-    if (!modal) {
+    if (!modal && Object.values(status).includes('not-found')) {
       let clickLeft = e.pageX + 25;
       let clickTop = e.pageY + 25;
     
@@ -110,7 +110,7 @@ const Body = ({ running, setRunning, status, setStatus, time, setTime }) => {
         <Leaderboard db={db} collection={collection} getDocs={getDocs} setTime={setTime} setStatus={setStatus} setPromptName={setPromptName} />
         : null
       }
-      { modal ? 
+      { (modal || !Object.values(status).includes('not-found')) ? 
         <img src={Waldo} alt='Wheres Waldo' className='game' 
           style={{ filter: 'blur(3px)' }}
         />
