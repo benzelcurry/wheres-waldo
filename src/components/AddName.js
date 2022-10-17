@@ -13,7 +13,8 @@ const AddName = ({ db, time, setPromptName }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const score = `${("0" + Math.floor((time / 60000) % 60)).slice(-2)}:${("0" + Math.floor((time / 1000) % 60)).slice(-2)}`
+    // const score = `${("0" + Math.floor((time / 60000) % 60)).slice(-2)}:${("0" + Math.floor((time / 1000) % 60)).slice(-2)}`
+    const score = time;
 
     if (name === '') {
       alert('Please enter a name');

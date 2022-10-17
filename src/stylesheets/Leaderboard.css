@@ -7,7 +7,8 @@
   position: absolute;
   z-index: 99;
   background-color: white;
-  border: solid 4px black;
+  border: solid 5px black;
+  border-radius: 20px;
 }
 
 .leaderboard-title {

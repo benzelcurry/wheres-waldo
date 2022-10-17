@@ -55,7 +55,8 @@ const Leaderboard = ({ db, collection, getDocs, setTime, setStatus, setPromptNam
           <li key={score.id}>
             <div className="score">
               <div>{ score.data.name }</div>
-              <div>{ score.data.score }</div>
+              {/* <div>{ score.data.score }</div> */}
+              <div>{("0" + Math.floor((score.data.score / 60000) % 60)).slice(-2)}:{("0" + Math.floor((score.data.score / 1000) % 60)).slice(-2)}</div>
             </div>
           </li>) }
       </ol>
