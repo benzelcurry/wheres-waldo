@@ -107,7 +107,7 @@ const Body = ({ running, setRunning, status, setStatus, time }) => {
         : null
       }
       { promptName ?
-        <Leaderboard db={db} collection={collection} getDocs={getDocs} time={time} />
+        <Leaderboard db={db} collection={collection} getDocs={getDocs} time={time} setStatus={setStatus} />
         : null
       }
       { modal ? 

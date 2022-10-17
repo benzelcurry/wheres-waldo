@@ -1,14 +1,10 @@
 // Component that displays the leaderboard
 
 import React, { useState, useEffect } from 'react';
-import { onSnapshot } from 'firebase/firestore';
 
-import AddName from './AddName';
 import '../stylesheets/Leaderboard.css';
 
-// IMPLEMENT A PLAY AGAIN BUTTON
-// STYLE THIS COMPONENT MORE
-const Leaderboard = ({ db, collection, getDocs, time }) => {
+const Leaderboard = ({ db, collection, getDocs, setStatus }) => {
   const [hiscores, setHiscores] = useState([]);
 
   useEffect(() => {
@@ -52,6 +48,7 @@ const Leaderboard = ({ db, collection, getDocs, time }) => {
             </div>
           </li>) }
       </ol>
+      <button className='play-again'>Play Again</button>
     </div>
   )
 };

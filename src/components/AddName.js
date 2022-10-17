@@ -21,9 +21,6 @@ const AddName = ({ db, time, setPromptName }) => {
     }
 
     const scoresColRef = collection(db, 'leaderboard');
-    // TIME WILL BE ADDED THROUGH THE ADDDOC LINE AS WELL
-    // CHECK SCORE AGAINST TOP TEN SCORES BEFORE PROMPTING USER
-    // TO ENTER THEIR NAME
     addDoc(scoresColRef, { name, score })
       .then(response => {
         setPromptName(true);
@@ -31,8 +28,6 @@ const AddName = ({ db, time, setPromptName }) => {
       .catch(err => {
         console.log(err.message)
       });
-
-    alert(name);
   }
 
   return (
