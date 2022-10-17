@@ -11,7 +11,6 @@ import '../stylesheets/Leaderboard.css';
 const Leaderboard = ({ db, collection, getDocs, time }) => {
   const [hiscores, setHiscores] = useState([]);
 
-  // Include ', []' after trailing '}'?
   useEffect(() => {
     getScores()
   }, []);
@@ -20,7 +19,6 @@ const Leaderboard = ({ db, collection, getDocs, time }) => {
     console.log(hiscores);
   }, [hiscores]);
 
-  // COME BACK AND FINISH THIS; HOPEFULLY FIXES INFINITE LOOPING
   const getScores = () => {
     const scoresColRef = collection(db, 'leaderboard');
 
@@ -35,7 +33,9 @@ const Leaderboard = ({ db, collection, getDocs, time }) => {
           a.data.score < b.data.score
         ) ? -1 : 1);
 
-        setHiscores(scores);
+        const topTen = scores.slice(0, 10);
+
+        setHiscores(topTen);
       })
       .catch(err => console.log(err.message));
   }

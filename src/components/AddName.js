@@ -13,7 +13,7 @@ const AddName = ({ db, time }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const score = () => `${("0" + Math.floor((time / 60000) % 60)).slice(-2)}:${("0" + Math.floor((time / 1000) % 60)).slice(-2)}`
+    const score = `${("0" + Math.floor((time / 60000) % 60)).slice(-2)}:${("0" + Math.floor((time / 1000) % 60)).slice(-2)}`
 
     if (name === '') {
       console.log(score);
