@@ -15,7 +15,7 @@ import Leaderboard from './Leaderboard';
 import Waldo from '../images/waldo1.jpg';
 import '../stylesheets/Body.css';
 
-const Body = ({ running, setRunning, status, setStatus, time }) => {
+const Body = ({ running, setRunning, status, setStatus, time, setTime }) => {
   const [x, setX] = useState(0);
   const [y, setY] = useState(0);
   const [targX, setTargX] = useState(0);
@@ -107,7 +107,7 @@ const Body = ({ running, setRunning, status, setStatus, time }) => {
         : null
       }
       { promptName ?
-        <Leaderboard db={db} collection={collection} getDocs={getDocs} time={time} setStatus={setStatus} />
+        <Leaderboard db={db} collection={collection} getDocs={getDocs} setTime={setTime} setStatus={setStatus} setPromptName={setPromptName} />
         : null
       }
       { modal ? 

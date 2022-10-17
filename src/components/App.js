@@ -28,7 +28,7 @@ const App = () => {
   return (
     <div >
       <Header running={running} setRunning={setRunning} status={status} setStatus={setStatus} time={time} setTime={setTime} />
-      <Body running={running} setRunning={setRunning} status={status} setStatus={setStatus} time={time} />
+      <Body running={running} setRunning={setRunning} status={status} setStatus={setStatus} time={time} setTime={setTime} />
     </div>
   );
 };

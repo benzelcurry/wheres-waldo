@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 
 import '../stylesheets/Leaderboard.css';
 
-const Leaderboard = ({ db, collection, getDocs, setStatus }) => {
+const Leaderboard = ({ db, collection, getDocs, setTime, setStatus, setPromptName }) => {
   const [hiscores, setHiscores] = useState([]);
 
   useEffect(() => {
@@ -36,6 +36,17 @@ const Leaderboard = ({ db, collection, getDocs, setStatus }) => {
       .catch(err => console.log(err.message));
   }
 
+  const playAgain = () => {
+    setStatus({
+      odlaw: 'not-found',
+      waldo: 'not-found',
+      wizard: 'not-found'
+    });
+
+    setPromptName(false);
+    setTime(0);
+  };
+
   return (
     <div className='leaderboard-container'>
       <div className='leaderboard-title'>Leaderboard</div>
@@ -48,7 +59,7 @@ const Leaderboard = ({ db, collection, getDocs, setStatus }) => {
             </div>
           </li>) }
       </ol>
-      <button className='play-again'>Play Again</button>
+      <button className='play-again' onClick={() => playAgain()}>Play Again</button>
     </div>
   )
 };
