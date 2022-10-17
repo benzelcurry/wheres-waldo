@@ -52,7 +52,6 @@ const Leaderboard = ({ db, collection, getDocs, time }) => {
             </div>
           </li>) }
       </ol>
-      <AddName db={db} time={time} />
     </div>
   )
 };

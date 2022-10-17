@@ -10,6 +10,7 @@ import {
 import Modal from './Modal';
 import Dropdown from './Dropdown';
 import Target from './Target';
+import AddName from './AddName';
 import Leaderboard from './Leaderboard';
 import Waldo from '../images/waldo1.jpg';
 import '../stylesheets/Body.css';
@@ -27,6 +28,7 @@ const Body = ({ running, setRunning, status, setStatus, time }) => {
   const [waldoY, setWaldoY] = useState(null);
   const [wizardX, setWizardX] = useState(null);
   const [wizardY, setWizardY] = useState(null);
+  const [promptName, setPromptName] = useState(false);
 
   // Firebase stuff
   const firebaseConfig = {
@@ -99,7 +101,12 @@ const Body = ({ running, setRunning, status, setStatus, time }) => {
         </div>
         : null
       }
-      { !Object.values(status).includes('not-found') ?
+      {
+        (!Object.values(status).includes('not-found') && !promptName) ?
+        <AddName db={db} time={time} setPromptName={setPromptName} />
+        : null
+      }
+      { promptName ?
         <Leaderboard db={db} collection={collection} getDocs={getDocs} time={time} />
         : null
       }

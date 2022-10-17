@@ -1,7 +1,7 @@
 .leaderboard-container {
   display: grid;
   min-height: 80%;
-  width: 80%;
+  width: 50%;
   position: absolute;
   z-index: 99;
   background-color: white;

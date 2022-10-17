@@ -7,7 +7,7 @@ import '../stylesheets/AddName.css';
 
 // IF USER SCORE IS > ANY OF TOP 10 OF HISCORE STATE VARIABLE,
 // PROMPT USER TO ADD NAME TO LEADERBOARD
-const AddName = ({ db, time }) => {
+const AddName = ({ db, time, setPromptName }) => {
   const [name, setName] = useState('');
 
   const handleSubmit = (e) => {
@@ -16,7 +16,7 @@ const AddName = ({ db, time }) => {
     const score = `${("0" + Math.floor((time / 60000) % 60)).slice(-2)}:${("0" + Math.floor((time / 1000) % 60)).slice(-2)}`
 
     if (name === '') {
-      console.log(score);
+      alert('Please enter a name');
       return;
     }
 
@@ -26,7 +26,7 @@ const AddName = ({ db, time }) => {
     // TO ENTER THEIR NAME
     addDoc(scoresColRef, { name, score })
       .then(response => {
-        console.log(response);
+        setPromptName(true);
       })
       .catch(err => {
         console.log(err.message)
@@ -37,12 +37,6 @@ const AddName = ({ db, time }) => {
 
   return (
     <div className='name-container'>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor='name'>User Name</label>
-        <input type='text' value={name}
-         onChange={ (e) => setName(e.target.value) } />
-        <button type='submit'>Enter Name</button>
-      </form>
       <div className='time-container'>Your time was: &nbsp;{
         <div>
           <span>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}:</span>
@@ -50,6 +44,13 @@ const AddName = ({ db, time }) => {
         </div>
       }
       </div>
+      <form onSubmit={handleSubmit} className='name-input'>
+        <input type='text' value={name} placeholder='Username'
+         onChange={ (e) => setName(e.target.value) } className='name-field'
+          maxLength={'10'}
+         />
+        <button type='submit' className='submit-btn'>Submit</button>
+      </form>
     </div>
   );
 };
