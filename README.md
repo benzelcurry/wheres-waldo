@@ -1,4 +1,5 @@
-Where's Waldo project for The Odin Project's JavaScript course.
+# Where's Waldo 
+This project is a playable browser version of Where's Waldo, made for The Odin Project's front end JavaScript curriculum.
 
 Technologies:
 * React
@@ -10,6 +11,3 @@ Features:
 * Real-time gameover notification
 * Global leaderboard without login
 * Server-side timestamps to measure duration of games
-
-Potential future updates:
-* Additional maps to play
