@@ -1,4 +1,6 @@
 # Where's Waldo 
+Link to app: https://wheres-waldo-at.web.app/
+
 This project is a playable browser version of Where's Waldo, made for The Odin Project's front end JavaScript curriculum.
 
 ## Technologies:
